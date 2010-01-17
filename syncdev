@@ -1,0 +1,10 @@
+#!/bin/bash
+
+ssh mcrute@fred.eyemg.com "svn status /usr/web/designer | grep -v '?'" > /dev/null 2>&1
+
+if [[ $? == 0 && $1 != '-f' ]]; then
+	echo "Changes exist on dev. Use SVN instead."
+	exit 1
+fi
+
+rsync -auvz -e "ssh" --delete-after --exclude "*.svn" "`pwd`/" mcrute@fred.eyemg.com:/usr/web/designer/

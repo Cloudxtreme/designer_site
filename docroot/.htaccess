@@ -1,0 +1,46 @@
+#
+# Material Experience - .htaccess File
+#	
+# EYEMG - Interactive Media Group
+# Created by Mike Crute (mcrute@eyemg.com)
+# Updated by Mike Crute (mcrute@eyemg.com) on 9/26/07
+#
+# Workarounds for missing mod_gzip and caching. This file
+# is pre-processed before the site goes into production
+# since we don't really gzip anything in development.
+#
+# WARNING!: Seconds of code marked with ### PRODUCTION###
+# are blocks un-commented by the build system, you can 
+# add or remove them just be careful what you ask for.
+#
+
+# Cache Control Headers
+### PRODUCTION ###
+#ExpiresActive on
+#ExpiresDefault "access plus 1 week"
+### END PRODUCTION ###
+
+# Disable the ETag Header (per YSlow)
+#
+# I know that this probably doesn't mean anything for us 
+# because we don't serve AES with a cluster but just for
+# the sake of getting straight As in YSlow we'll remove
+# them.
+FileEtag none
+
+### PRODUCTION ###
+#<Files application.js>
+#    Header set Content-Encoding "gzip"
+#</Files>
+
+#<Files application.css>
+#    Header set Content-Encoding "gzip"
+#</Files>
+### END PRODUCTION ###
+
+<Files index.html>
+	Header set Content-Type "text/html;charset=utf-8"
+### PRODUCTION ###
+#	Header set Content-Encoding "gzip"
+### END PRODUCTION ###
+</Files>

@@ -1,0 +1,463 @@
+/*
+ * Material Experience - Site Stylesheet
+ * 
+ * EYEMG - Interactive Media Group
+ * Created by Mike Crute (mcrute@eyemg.com)
+ * Updated by Mike Crute (mcrute@eyemg.com) on 9/26/07
+ * 
+ * Site stylesheet the covers most of the look and feel of the site.
+ * Some of the CSS is also in the application logic so if you can't
+ * find what your looking for here go there.
+ */
+
+/*
+ * General Application Styles
+ */
+html 
+{ 
+	overflow: hidden; 
+}
+
+body 
+{ 
+	font: 10px Verdana,sans-serif; 
+	margin: 0px; 
+	overflow: hidden; 
+}
+
+a 
+{ 
+	color: blue; 
+	text-decoration: underline; 
+}
+
+a img 
+{
+	border: 0px; 
+}
+
+h1 
+{
+	font-size: 1.7em; 
+}
+
+h2 
+{
+	font-size: 1.6em; 
+}
+
+img 
+{ 
+	/* The infamous PNG fix */
+	behavior: url('pngbehavior.htc'); 
+}
+
+/*
+ * Application Header Styles
+ */
+img#tagline 
+{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+
+div#header, div#footer 
+{
+	background: white;
+	height: 60px;
+	width: 100%;
+	position: relative;
+	z-index: 99;
+}
+
+div#header 
+{
+	height: 80px; 
+}
+
+p#version 
+{ 
+	position: absolute; 
+	bottom: 0px; 
+	right: 7px; 
+	z-index: 100; 
+	color: red; 
+}
+
+img#logo 
+{ 
+	position: absolute; 
+	z-index: 9999999999; 
+	cursor: pointer; 
+	padding: 10px 0px 0px 10px; 
+}
+
+/*
+ * Table and Chip Element Styles
+ */
+div.appDecorator 
+{ 
+	height: 21px;
+	width: 6px;
+}
+
+div.table 
+{ 
+	position: absolute; 
+	top: 60px; 
+	left: 0px; 
+	width: 100%; 
+}
+
+img.chip 
+{ 
+	position: absolute; 
+	cursor: pointer; 
+}
+
+/*
+ * Application Footer Styles
+ */
+p#copyright, div#footer p#copyright a 
+{ 
+	color: rgb(190,190,190); 
+	font-size: 10px;
+	margin-right: 0px;
+	text-transform: none;
+}
+
+div#footer p#copyright a 
+{
+	text-decoration: underline; 
+}
+
+p#copyright 
+{
+	width: 100%;
+	display: block;
+	position: absolute; 
+	bottom: 0px; 
+	left: 0px;
+	text-align: center;
+	z-index: 100; 
+} 
+ 
+div#footer
+{ 
+	position: absolute; 
+	bottom: -1px; 
+	height: 40px; 
+	text-align: center; 
+	padding: 5px 0px 10px 0px; 
+}
+
+div#footer img 
+{ 
+	position: relative; 
+	top: 6px; 
+	margin-right: 5px; 
+}
+
+div#footer a
+{
+	font-size: 1.2em;
+	text-transform: uppercase;
+	text-decoration: none;
+	margin-right: 25px;
+}
+
+/*
+ * History Menu Styles
+ */
+div.history 
+{
+	position: absolute;
+	right: 20px;
+	top: 20px;
+	padding: 3px 10px;
+	cursor: pointer;
+	background: none;
+	text-align: right;
+}
+
+ul#history:hover, ul#history.hovered 
+{
+	display: block; 
+}
+
+ul#history 
+{ 
+	position: absolute;
+	z-index: 100;
+	display: none; 
+	margin: 0px; 
+	padding: 10px 0px 0px 0px; 
+	color: rgb(255, 255, 255); 
+	text-decoration: none;
+	width: 200px;
+}
+
+ul#history li 
+{ 
+	background: rgb(145, 145, 145); 
+	list-style: none; 
+	padding: 5px 10px; 
+	margin: 0px; 
+	border-bottom: 1px solid white;
+	text-align: left;
+	color: white;
+	text-decoration: none;
+}
+
+ul#history li a 
+{
+	color: white;
+	text-decoration: none;
+	border: 0px;
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+ul#history li:last-child 
+{
+	border-bottom: 0px; 
+}
+
+/*
+ * Rounded Corner Styles
+ */
+.round      { display: block; }
+.round *    { display:block; height: 1px; overflow: hidden; }
+.rcSlice_1  { margin: 0 10px; }
+.rcSlice_2  { margin: 0 8px;  }
+.rcSlice_3  { margin: 0 6px;  }
+.rcSlice_4  { margin: 0 5px;  }
+.rcSlice_5  { margin: 0 4px;  }
+.rcSlice_6  { margin: 0 3px;  }
+.rcSlice_7  { margin: 0 3px;  }
+.rcSlice_8  { margin: 0 2px; height: 1px; }
+.rcSlice_9  { margin: 0 2px; height: 2px; }
+.rcSlice_10 { margin: 0 1px; height: 3px; }
+
+/*
+ * Card Frame Styles (Card Class)
+ */
+img.commandbtn 
+{ 
+	height: 11px; 
+	width: 11px; 
+	display: inline; 
+	margin: 0px 2px; 
+	cursor: pointer; 
+}
+
+span.commandlabel 
+{ 
+	height: auto; 
+	z-index: 9; 
+	display: inline; 
+	position: relative; 
+	top: -2px; 
+	font-size: 1.1em;
+}
+
+span.commandlabel * 
+{
+	height: auto; 
+	display: inline; 
+	font-size: 1.1em; 
+}
+
+span.cardTitle 
+{
+	font-size: 1.1em; 
+}
+
+.cardTitle 
+{
+	position: absolute;
+	color: white;
+	z-index: 1;
+	height: auto;
+	top: 4px;
+	left: 15px;
+}
+
+.buttonbox 
+{
+	position: absolute;
+	right: 15px;
+	top: 6px;
+	z-index: 100;
+	height: auto;
+	color: white;
+	font-size: 0.8em;
+}
+
+/*
+ * Card Resource List Styles (Card Layout)
+ */
+.resourceList 
+{
+	margin: 0px;
+	padding: 0px;
+}
+
+.resourceList li 
+{
+	list-style: none;
+	padding-bottom: 7px;
+}
+
+/*
+ * Card Thumbnail Styles (Card Layout)
+ */
+.mediaThumb 
+{
+	width: 50px; 
+	height: 50px; 
+	padding: 10px 10px 0px 0px;
+	cursor: pointer;
+}
+
+.thumbStrip 
+{
+	text-align: center;
+}
+
+.thumbStrip img 
+{
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+}
+
+/*
+ * Sketchbook Trash Can Styles
+ */
+#sbTrash 
+{
+	position: absolute; 
+	bottom: 20px; 
+	right: 10px;
+}
+
+.trashHi 
+{ 
+	background-color: lightyellow;
+}
+
+/*
+ * Skip Link Styles (Intro Card)
+ */
+.skiplink 
+{
+	color: rgb(145, 145, 145);
+	text-decoration: none;
+	font-size: 1.1em;
+	position: relative;
+	z-index: 99;
+}
+
+.skipimg 
+{
+	vertical-align: bottom;
+	margin-left: 3px;
+}
+
+.skipbox 
+{
+	text-align: center;
+	margin-top: -50px;
+}
+
+/*
+ * Custom Content Styles
+ */
+ul#navigation 
+{
+	margin: 0px;
+	padding: 0px;
+}
+
+ul#navigation li 
+{
+	margin: 5px 30px 0px 0px;
+	list-style: none;
+	border: 1px solid white;
+}
+
+ul#navigation li a 
+{
+	display: block;
+	text-decoration: none;
+	padding: 2px;
+	border: 3px solid black;
+}
+
+ul#navigation li ul li a 
+{
+	margin: 0px -60px 0px -30px;
+}
+
+.selected
+{
+	background: black;
+	color: white;
+	padding: 5px;
+}
+/*
+.narrowCol, .wideCol
+{
+	float: left;
+	height: 460px; 
+	overflow: hidden; 
+}
+
+.narrowCol
+{
+	width: 290px; 
+	margin-right: 20px;
+}
+
+.wideCol
+{
+	width: 569px;
+}
+*/
+
+/*
+ * Custom Content Color Styles
+ */
+ul#navigation li a 
+{
+	color: white;
+	background: rgb(100, 100, 100);
+	border: 3px solid rgb(100, 100, 100);
+}
+
+ul#navigation li ul li a 
+{
+	background: white;
+	color: rgb(100, 100, 100);
+}
+
+.selected 
+{
+	background: #ccc;
+	color: #000;
+	padding: 0px;
+}
+
+span.glossterm 
+{
+	text-transform: uppercase;
+}
+
+span.anchor 
+{
+	text-transform: uppercase;
+	font-weight: bold;
+}

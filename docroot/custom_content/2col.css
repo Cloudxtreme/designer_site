@@ -1,0 +1,68 @@
+/*
+ * Material Experience - 2 Column Custom Content Base Styles
+ * 
+ * EYEMG - Interactive Media Group
+ * Created by Mike Crute (mcrute@eyemg.com)
+ * Updated by Mike Crute (mcrute@eyemg.com) on 10/21/07
+ */
+
+body 
+{ 
+	font-family: Verdana, sans-serif;
+	font-size: 11px;
+	margin: 10px;
+	padding: 0px;
+}
+
+ul#navigation 
+{
+	margin: 0px;
+	padding: 0px;
+}
+
+ul#navigation li 
+{
+	margin: 5px 30px 0px 0px;
+	list-style: none;
+	font-weight: bolder;
+	border: 1px solid white;
+}
+
+ul#navigation li a 
+{
+	display: block;
+	text-decoration: none;
+	padding: 2px;
+	border: 3px solid black;
+}
+
+ul#navigation li ul li a 
+{
+	margin: 0px -60px 0px -30px;
+	font-weight: normal;
+}
+
+.selected
+{
+	background: black;
+	color: white;
+	padding: 5px;
+}
+
+.narrowCol, .wideCol
+{
+	float: left;
+	height: 460px; 
+	overflow: hidden; 
+}
+
+.narrowCol
+{
+	width: 290px; 
+	margin-right: 20px;
+}
+
+.wideCol
+{
+	width: 569px;
+}

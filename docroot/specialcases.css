@@ -1,0 +1,16 @@
+/*
+ * Material Experience - Special Cases Stylesheet
+ * 
+ * EYEMG - Interactive Media Group
+ * Created by Mike Crute (mcrute@eyemg.com)
+ * Updated by Mike Crute (mcrute@eyemg.com) on 9/26/07
+ * 
+ * Stylesheet that should be sourced by all special cases card content.
+ * This should do a bare minimum of styles but they are all required 
+ * per the client.
+ */
+
+a, a:visited 
+{
+	color: rgb(100, 100, 100); 
+}

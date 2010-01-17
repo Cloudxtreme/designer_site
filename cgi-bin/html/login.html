@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" >
+	<head>
+		<title>Please Log In!</title>
+		<script type="text/javascript" src="http://materialexperience.santoprene.com/siteflow2/scripts/designer.js"></script>
+		
+		<style type="text/css">
+			@import url('http://www.santoprene.com/siteflow2/styles/designer.css');
+			@import url('http://materialexperience.santoprene.com/specialcases.css');
+		</style>
+	</head>
+	
+	<body>	
+		<h3>Please Log In!</h3>
+		<h4>You need to be registered and logged in to use certain features of the Material Experience Website.</h4>
+
+		<TMPL_VAR NAME="error">
+
+		<p>
+			If you are not yet registered, <a href="http://www.santoprene.com/cgi-bin/register/account.pl?template=designer_">
+			register here!</a> If you have forgotten your password, 
+			<a href="http://www.santoprene.com/cgi-bin/lost_password.pl?tmpl=designer">we can e-mail it to you</a>. 
+		</p>
+
+		<form action="/cgi-bin/login.pl" method="post">
+			<input type="hidden" name="redir" value="/cgi-bin/sketchbook.pl">
+
+			<p>
+				<label>Username:</label>
+				<input type="text" name="user" value="<TMPL_VAR NAME="user">" size="30" />
+			</p>
+			<p>
+				<label>Password:</label>
+				<input type="password" name="password" /> 
+				<a href="http://www.santoprene.com/cgi-bin/lost_password.pl?tmpl=designer">Forgot it?</a>
+			</p>
+
+			<p><input type="submit" value="Log In" /></p>
+		</form>
+	</body>
+</html>

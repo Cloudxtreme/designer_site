@@ -1,0 +1,42 @@
+/*
+ * Material Experience - IE 6 PNG Behavior
+ * 
+ * EYEMG - Interactive Media Group
+ * Created by Mike Crute (mcrute@eyemg.com)
+ * Updated by Mike Crute (mcrute@eyemg.com) on 9/26/07
+ * 
+ * Fixes the transparent PNG issue with IE 6. We only modified this
+ * code, it actually came from:
+ * http://webfx.eae.net/dhtml/pngbehavior/pngbehavior.html
+ */
+<public:component lightWeight="true">
+<public:attach event="onpropertychange" onevent="propertyChanged()" />
+<script type="text/javascript">
+var supported = /MSIE ((5\.5)|[6789])/.test(navigator.userAgent) && navigator.platform == "Win32";
+var blankSrc = "/images/blank.gif";
+
+if (supported) fixImage();
+
+function propertyChanged() {
+	if (!supported) return;
+	if (event.propertyName != "src") return;
+	if (src == blankSrc) fixImage();
+}
+
+function fixImage() {
+	var src = element.src;
+	var alt = element.alt;
+	var realSrc;
+
+	if (!new RegExp(blankSrc).test(src))
+		realSrc = src;
+
+	if (/\.png$/i.test(realSrc)) {
+		element.src   = blankSrc;
+		element.alt   = alt;
+		element.title = alt;
+		element.runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='" + src + ")";
+	}
+}
+</script>
+</public:component>

@@ -1,0 +1,71 @@
+#!/bin/bash
+#
+# ExxonMobil Designer Site Deploy Script
+# by Mike Crute, EYEMG (mcrute@eyemg.com)
+#
+# This is the deployment script for the AES designer site
+# it exists to script the last piece of building and deploying
+# the designer site. 
+#
+
+if [ `hostname` == 'calvin.eyemg.com' ]; then
+	cd /usr/web/designer
+	rm -rf cgi-bin/ docroot/
+	tar -xvjf aes_designer.tbz2
+	echo "Code Deployed: `date +'%Y-%m-%d %H:%M:%S'` EST" >> docroot/build.date
+	rm deploy
+else
+	RED="\033[0;31m"
+	GREEN="\033[0;32m"
+	BROWN="\033[0;33m"
+	CYAN="\033[0;36m"
+	COLOR_CLEAR="\033[00m"
+
+	clear
+	echo -e "${BROWN}***************************************************"
+	echo -e "${BROWN}*                                                 *"
+	echo -e "${BROWN}*${COLOR_CLEAR}       ${CYAN}AES Designer Site Deployment Script${COLOR_CLEAR}       ${BROWN}*"
+	echo -e "${BROWN}*                                                 *"
+	echo -e "${BROWN}***************************************************"
+	echo -e "$COLOR_CLEAR"
+	echo -n "Your SSH Username: "
+	read myuser
+	echo ""
+
+	if [[ $myuser == '' ]]; then
+		echo -e "\n${RED}FAILED:${COLOR_CLEAR} Enter a username."
+		exit 1
+	fi
+
+	./make
+	
+	if [[ $? != 0 ]]; then
+		echo -e "\n${RED}FAILED:${COLOR_CLEAR} Make failed, wisely refusing to continue."
+		exit 1
+	fi
+	
+	scp ./aes_designer.tbz2 $myuser@calvin.eyemg.com:/usr/web/designer
+	
+	if [[ $? != 0 ]]; then
+		echo -e "\n${RED}FAILED:${COLOR_CLEAR} Failed to deploy code tarball."
+		exit 1
+	fi
+	
+	scp ./deploy $myuser@calvin.eyemg.com:/usr/web/designer
+	
+	if [[ $? != 0 ]]; then
+		echo -e "\n${RED}FAILED:${COLOR_CLEAR} Failed to deploy install script."
+		exit 1
+	fi
+	
+	ssh $myuser@calvin.eyemg.com /usr/web/designer/deploy > /dev/null 2>&1
+
+	if [[ $? != 0 ]]; then
+		echo -e "\n${RED}FAILED:${COLOR_CLEAR} Remote command execution failed."
+		exit 1
+	fi
+	
+	rm aes_designer.tbz2
+	
+	echo -e "\n ${GREEN}SUCCESS:${COLOR_CLEAR} Go check and make sure!"
+fi
